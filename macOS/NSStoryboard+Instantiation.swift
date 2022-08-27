@@ -1,6 +1,6 @@
 //
 //  NSStoryboard+Instantiation.swift
-//  HighlightrDemo
+//  Macarbon
 //
 //  Created by HIROKI IKEUCHI on 2022/03/22.
 //

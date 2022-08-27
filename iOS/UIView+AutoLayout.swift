@@ -9,6 +9,30 @@ import UIKit
 
 // 全てのUIパーツはUIViewを継承しているので、UIViewのExtensionとしてConstrainsのためのメソッドを用意する
 extension UIView {
+    
+    // ref: https://stackoverflow.com/questions/24418884/remove-all-constraints-affecting-a-uiview
+    public func removeAllConstraints() {
+        var _superview = self.superview
+        
+        while let superview = _superview {
+            for constraint in superview.constraints {
+                
+                if let first = constraint.firstItem as? UIView, first == self {
+                    superview.removeConstraint(constraint)
+                }
+                
+                if let second = constraint.secondItem as? UIView, second == self {
+                    superview.removeConstraint(constraint)
+                }
+            }
+            
+            _superview = superview.superview
+        }
+        
+        self.removeConstraints(self.constraints)
+        self.translatesAutoresizingMaskIntoConstraints = true
+    }
+    
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,
                 right: NSLayoutXAxisAnchor? = nil,
