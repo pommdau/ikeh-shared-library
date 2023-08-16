@@ -18,5 +18,3 @@ extension NSAlert {
         alert.runModal()
     }
 }
-
-

@@ -16,12 +16,24 @@ extension Double {
      print(num.truncate(places: 2))  // 1.23
      print(num.truncate(places: 6))  // 1.234568
      */
-    func truncate(places : Int)-> Double {
+    func truncate(places: Int) -> Double {
         
         var result: Double = self
-        result = result * pow(10.0, Double(places))
+        result *= pow(10.0, Double(places))
         result = result.rounded()
-        result = result / pow(10.0, Double(places))
+        result /= pow(10.0, Double(places))
+                                            
+        return result
+    }
+}
+
+extension Float {
+    func truncate(places: Int) -> Float {
+        
+        var result: Float = self
+        result *= pow(10.0, Float(places))
+        result = result.rounded()
+        result /= pow(10.0, Float(places))
                                             
         return result
     }
