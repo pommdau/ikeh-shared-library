@@ -33,6 +33,11 @@ extension CGPoint {
         lhs.x += rhs.x
         lhs.y += rhs.y
     }
+    
+    static func -= (lhs: inout CGPoint, rhs: CGPoint) {
+        lhs.x -= rhs.x
+        lhs.y -= rhs.y
+    }
 }
 
 // MARK: - CGRect
